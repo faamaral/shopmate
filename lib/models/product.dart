@@ -1,4 +1,5 @@
-class Product {
+class Product 
+{
   final String id;
   final String title;
   final String description;
@@ -6,15 +7,17 @@ class Product {
   final String imageUrl;
   bool isFavorite;
 
-  Product(
-      {required this.id,
-      required this.title,
-      required this.description,
-      required this.price,
-      required this.imageUrl,
-      this.isFavorite = false});
+  Product({
+    required this.id,
+    required this.title,
+    required this.description,
+    required this.price,
+    required this.imageUrl,
+    this.isFavorite = false
+  });
 
-  void toggleFavorite() {
-    this.isFavorite = !this.isFavorite;
+  void toggleFavorite() 
+  {
+    isFavorite = !isFavorite;
   }
 }
