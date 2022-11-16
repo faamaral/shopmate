@@ -20,11 +20,15 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
-            fontFamily: 'Lato',
-            colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.purple)
-                .copyWith(secondary: Colors.deepOrange)),
+          fontFamily: 'Lato',
+          primaryColor: Colors.purple,
+          colorScheme:
+              ColorScheme.fromSwatch().copyWith(secondary: Colors.deepOrange),
+        ),
         home: const ProductsOverviewPage(),
-        routes: {AppRoutes.productDetail: (context) => const ProductDetailPage()},
+        routes: {
+          AppRoutes.productDetail: (context) => const ProductDetailPage()
+        },
         debugShowCheckedModeBanner: false,
       ),
     );
