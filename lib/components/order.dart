@@ -61,7 +61,7 @@ class _OrderWidgetState extends State<OrderWidget> {
                         ))
                     .toList(),
               ),
-            )
+            ),
         ],
       ),
     );
