@@ -16,26 +16,24 @@ You can clone this repository to your local machine or try one of the releases p
 
         ```{zsh}
         git clone https://github.com/faamaral/shop.git
-        
         ```
 
     2. open the project folder and install the necessary dependencies typing this command:
 
         ```{zsh}
-            flutter pug get
+        flutter pug get
         ```
 
     3. Run the application by typing:
 
         ```{zsh}
-            flutter run android
-
+        flutter run android
         ```
 
         or
 
         ```{zsh}
-            flutter run
+        flutter run
         ```
 
 - Try a realise.
