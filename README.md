@@ -1,16 +1,42 @@
-# shop
+# Simple shop online app
 
-A new Flutter project.
+A simple online store application created using flutter framework for practical learning purposes.
 
-## Getting Started
+In the development of this application, concepts such as state management, use of forms, among other things, were practiced.
 
-This project is a starting point for a Flutter application.
+## How to use
 
-A few resources to get you started if this is your first Flutter project:
+You can clone this repository to your local machine or try one of the releases published in this repository.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Clone the repository.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+    Open your terminal and follow the step by step.
+
+    1. download the repository to your local machine.
+
+        ```{zsh}
+        git clone https://github.com/faamaral/shop.git
+        
+        ```
+
+    2. open the project folder and install the necessary dependencies typing this command:
+
+        ```{zsh}
+            flutter pug get
+        ```
+
+    3. Run the application by typing:
+
+        ```{zsh}
+            flutter run android
+
+        ```
+
+        or
+
+        ```{zsh}
+            flutter run
+        ```
+
+- Try a realise.
+ install one of this [releases file](https://github.com/faamaral/shop/releases) in your Android or IOS smartphone.
