@@ -24,6 +24,8 @@ You can clone this repository to your local machine or try one of the releases p
         flutter pug get
         ```
 
+        - create a `.env` file and add the `BASE_URL` string.
+
     3. Run the application by typing:
 
         ```{zsh}
