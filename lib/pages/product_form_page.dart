@@ -21,6 +21,8 @@ class _ProductFormPageState extends State<ProductFormPage> {
 
   final _formData = Map<String, Object>();
 
+  bool isLoanding = false;
+
   @override
   void initState() {
     super.initState();
@@ -65,14 +67,23 @@ class _ProductFormPageState extends State<ProductFormPage> {
   }
 
   void _submitForm() {
+    setState(() {
+      isLoanding = true;
+    });
     final isValid = _formKey.currentState?.validate() ?? false;
     if (!isValid) {
       return;
     }
     _formKey.currentState?.save();
 
-    Provider.of<ProductList>(context, listen: false).saveProdut(_formData);
-    Navigator.of(context).pop();
+    Provider.of<ProductList>(context, listen: false)
+        .saveProdut(_formData)
+        .then((value) {
+      setState(() {
+        isLoanding = false;
+      });
+      Navigator.of(context).pop();
+    });
   }
 
   @override
@@ -87,7 +98,9 @@ class _ProductFormPageState extends State<ProductFormPage> {
           ),
         ],
       ),
-      body: Padding(
+      body: isLoanding ? const Center(
+        child: CircularProgressIndicator(),
+      ) : Padding(
         padding: const EdgeInsets.all(15),
         child: Form(
           key: _formKey,
@@ -193,11 +206,9 @@ class _ProductFormPageState extends State<ProductFormPage> {
                         border: Border.all(color: Colors.grey, width: 1)),
                     child: _imageUrlController.text.isEmpty
                         ? const Text('Informe a URL')
-                        : FittedBox(
-                            child: Image.network(
-                              _imageUrlController.text,
-                              fit: BoxFit.cover,
-                            ),
+                        : Image.network(
+                            _imageUrlController.text,
+                            fit: BoxFit.cover,
                           ),
                   ),
                 ],
