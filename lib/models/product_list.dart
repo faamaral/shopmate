@@ -7,9 +7,10 @@ import 'package:http/http.dart' as http;
 import 'package:shop/data/dummy_data.dart';
 import 'package:shop/exceptions/http_exception.dart';
 import 'package:shop/models/product.dart';
+import 'package:shop/utils/environment.dart';
 
 class ProductList with ChangeNotifier {
-  final _url = dotenv.env['BASE_URL'];
+  final _url = Environment.productBaseUrl;
   List<Product> _items = [];
 
   List<Product> get items => [..._items];
