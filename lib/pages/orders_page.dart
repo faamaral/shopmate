@@ -20,6 +20,10 @@ class OrdersPage extends StatelessWidget {
             return const Center(
               child: CircularProgressIndicator(),
             );
+          } else if (snapshot.error != null) {
+            return const Center(
+              child: Text("Ocorreu um erro!"),
+            );
           } else {
             return RefreshIndicator(
               onRefresh: () => _refreshProducts(context),
