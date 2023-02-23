@@ -4,46 +4,37 @@ import 'package:shop/components/app_drawer.dart';
 import 'package:shop/components/order.dart';
 import 'package:shop/models/order_list.dart';
 
-class OrdersPage extends StatefulWidget {
+class OrdersPage extends StatelessWidget {
   const OrdersPage({super.key});
 
   @override
-  State<OrdersPage> createState() => _OrdersPageState();
-}
-
-class _OrdersPageState extends State<OrdersPage> {
-  bool _isLoanding = true;
-
-  @override
-  void initState() {
-    super.initState();
-    Provider.of<OrderList>(context, listen: false).loadOrders().then((value) {
-      setState(() {
-        _isLoanding = false;
-      });
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
-    final OrderList orders = Provider.of(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text("Meus Pedidos"),
       ),
       drawer: const AppDrawer(),
-      body: _isLoanding
-          ? const Center(
+      body: FutureBuilder(
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(
               child: CircularProgressIndicator(),
-            )
-          : RefreshIndicator(
+            );
+          } else {
+            return RefreshIndicator(
               onRefresh: () => _refreshProducts(context),
-              child: ListView.builder(
-                itemCount: orders.itemsCount,
-                itemBuilder: (context, index) =>
-                    OrderWidget(order: orders.items[index]),
+              child: Consumer<OrderList>(
+                builder: (context, orders, child) => ListView.builder(
+                  itemCount: orders.itemsCount,
+                  itemBuilder: (context, index) =>
+                      OrderWidget(order: orders.items[index]),
+                ),
               ),
-            ),
+            );
+          }
+        },
+        future: Provider.of<OrderList>(context, listen: false).loadOrders(),
+      ),
     );
   }
 
