@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = ThemeData();
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
@@ -38,15 +39,15 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
-        theme: ThemeData(
-          fontFamily: 'Lato',
-          primaryColor: Colors.purple,
-          colorScheme: ColorScheme.fromSwatch()
-              .copyWith(secondary: Colors.deepOrange, primary: Colors.purple),
+        theme: theme.copyWith(
+          colorScheme: theme.colorScheme
+              .copyWith(primary: Colors.purple, secondary: Colors.deepOrange),
+          textTheme: theme.textTheme.apply(fontFamily: 'Lato'),
+          // fontFamily: 'Lato',
         ),
         // home: const ProductsOverviewPage(),
         routes: {
-          AppRoutes.auth:(context) => const AuthPage(),
+          AppRoutes.auth: (context) => const AuthPage(),
           AppRoutes.home: (context) => const ProductsOverviewPage(),
           AppRoutes.productDetail: (context) => const ProductDetailPage(),
           AppRoutes.cart: (context) => const CartPage(),
