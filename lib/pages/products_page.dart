@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shop/components/app_drawer.dart';
-import 'package:shop/components/product_item.dart';
-import 'package:shop/models/product_list.dart';
-import 'package:shop/utils/app_routes.dart';
+
+import '../components/app_drawer.dart';
+import '../components/product_item.dart';
+import '../models/product_list.dart';
+import '../utils/app_routes.dart';
 
 class ProductsPage extends StatelessWidget {
   const ProductsPage({super.key});

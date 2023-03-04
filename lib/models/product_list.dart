@@ -4,10 +4,10 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
-import 'package:shop/data/dummy_data.dart';
-import 'package:shop/exceptions/http_exception.dart';
-import 'package:shop/models/product.dart';
-import 'package:shop/utils/environment.dart';
+
+import '../exceptions/http_exception.dart';
+import '../utils/environment.dart';
+import 'product.dart';
 
 class ProductList with ChangeNotifier {
   final _url = Environment.productBaseUrl;

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shop/utils/app_routes.dart';
+
+import '../utils/app_routes.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});
@@ -16,7 +17,7 @@ class AppDrawer extends StatelessWidget {
           const Divider(),
           ListTile(
             leading: const Icon(Icons.shopping_bag),
-            title: const Text("Loja"),
+            title: const Text("SHOPMATE"),
             onTap: () {
               Navigator.of(context).pushReplacementNamed(AppRoutes.home);
             },

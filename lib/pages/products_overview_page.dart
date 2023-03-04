@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shop/components/app_drawer.dart';
-import 'package:shop/components/badge.dart';
-import 'package:shop/components/product_grid.dart';
-import 'package:shop/models/cart.dart';
-import 'package:shop/models/product_list.dart';
-import 'package:shop/utils/app_routes.dart';
+
+import '../components/app_drawer.dart';
+import '../components/badge.dart';
+import '../components/product_grid.dart';
+import '../models/cart.dart';
+import '../models/product_list.dart';
+import '../utils/app_routes.dart';
 
 enum FilterOptions { Favorite, All }
 
@@ -36,7 +37,7 @@ class _ProductsOverviewPageState extends State<ProductsOverviewPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Loja'),
+        title: const Text('SHOPMATE'),
         actions: [
           PopupMenuButton(
             icon: const Icon(Icons.more_vert),

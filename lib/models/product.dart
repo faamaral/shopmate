@@ -1,9 +1,9 @@
 import 'dart:convert';
-
-import 'package:flutter/cupertino.dart';
-import 'package:shop/exceptions/http_exception.dart';
-import 'package:shop/utils/environment.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+
+import '../exceptions/http_exception.dart';
+import '../utils/environment.dart';
 
 class Product with ChangeNotifier {
   final String id;

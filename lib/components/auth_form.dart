@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../models/auth.dart';
 
 enum AuthMode { signUp, login }
 
@@ -28,19 +31,20 @@ class _AuthFormState extends State<AuthForm> {
           _authMode = AuthMode.login;
         }
       });
-  void _submit() {
+  Future<void> _submit() async {
     final isValid = _formKey.currentState?.validate() ?? false;
 
     if (!isValid) return;
 
     setState(() => _isLoading = true);
 
-    _formKey.currentState?.save;
+    _formKey.currentState?.save();
+    Auth auth = Provider.of(context, listen: false);
 
     if (_isLogin()) {
       // requisição de login
     } else {
-      // requisição de registrar
+      await auth.signup(_authData['email']!, _authData['password']!);
     }
 
     setState(() => _isLoading = false);
@@ -54,7 +58,7 @@ class _AuthFormState extends State<AuthForm> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       child: Container(
         padding: const EdgeInsets.all(16),
-        height: _isLogin() ? 310 : 400,
+        height: _isLogin() ? 310 : 350,
         width: deviceSize.width * 0.75,
         child: Form(
           key: _formKey,
@@ -110,11 +114,12 @@ class _AuthFormState extends State<AuthForm> {
                 ElevatedButton(
                   onPressed: _submit,
                   style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 8, horizontal: 30)),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 8, horizontal: 30),
+                  ),
                   child: Text(
                       _authMode == AuthMode.login ? 'Entrar' : 'Registrar'),
                 ),

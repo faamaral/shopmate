@@ -1,4 +1,4 @@
-# Simple shop online app
+# Shopmate - A simple shop online app
 
 A simple online store application created using flutter framework for practical learning purposes.
 
