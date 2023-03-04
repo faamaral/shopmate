@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/provider.dart';
+import 'package:shopmate/utils/app_colors.dart';
 
 import 'models/auth.dart';
 import 'models/cart.dart';
@@ -46,7 +47,7 @@ class MyApp extends StatelessWidget {
         title: 'SHOPMATE - Your Shop Online',
         theme: theme.copyWith(
           colorScheme: theme.colorScheme
-              .copyWith(primary: Colors.purple, secondary: Colors.deepOrange),
+              .copyWith(primary: AppColors.primary, secondary: AppColors.secondary),
           textTheme: theme.textTheme.apply(fontFamily: 'Lato'),
           // fontFamily: 'Lato',
         ),
