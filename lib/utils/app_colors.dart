@@ -1,4 +1,4 @@
-import 'package:flutter/animation.dart';
+import 'package:flutter/material.dart';
 
 class AppColors {
   static const primary = Color(0xFF384B45);

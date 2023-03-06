@@ -1,42 +1,55 @@
-# Shopmate - A simple shop online app
+# Shopmate
 
-A simple online store application created using flutter framework for practical learning purposes.
+Shopmate is a simple online store application created using the Flutter framework for practical learning purposes. It demonstrates various concepts such as state management and form usage.
 
-In the development of this application, concepts such as state management, use of forms, among other things, were practiced.
+## How to Use
 
-## How to use
+1. Clone the repository to your local machine.
 
-You can clone this repository to your local machine or try one of the releases published in this repository.
+```
+git clone https://github.com/faamaral/shopmate.git
+```
 
-- Clone the repository.
+2. Install the necessary dependencies by typing the following command:
 
-    Open your terminal and follow the step by step.
+```
+flutter pub get
+```
 
-    1. download the repository to your local machine.
+3. Set up the project by running the appropriate setup file for your operating system:
 
-        ```{zsh}
-        git clone https://github.com/faamaral/shop.git
-        ```
+- For Linux/Mac:
 
-    2. open the project folder and install the necessary dependencies typing this command:
+  ```
+  sh setup.sh
+  ```
 
-        ```{zsh}
-        flutter pug get
-        ```
+- For Windows:
 
-        - create a `.env` file and add the `BASE_URL` string.
+  ```
+  ./setup.ps1
+  ```
 
-    3. Run the application by typing:
+When running the setup file, you will be prompted to enter the values for `BASE_URL` and `API_KEY`.
 
-        ```{zsh}
-        flutter run android
-        ```
+4. Run the application by typing:
 
-        or
+```
+flutter run android
+```
 
-        ```{zsh}
-        flutter run
-        ```
+or
 
-- Try a realise.
- install one of this [releases file](https://github.com/faamaral/shop/releases) in your Android or IOS smartphone.
+```
+flutter run
+```
+
+5. Alternatively, you can try one of the releases published in this repository. Install one of the release [files](https://github.com/faamaral/shopmate/releases) for Android or iOS on your smartphone.
+
+## Contributing
+
+Contributions are welcome and encouraged! Please feel free to open an issue or submit a pull request.
+
+## License
+
+Shopmate is released under the MIT License. See the LICENSE file for more details.
