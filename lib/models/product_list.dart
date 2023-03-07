@@ -11,7 +11,7 @@ import 'product.dart';
 
 class ProductList with ChangeNotifier {
   final _url = Environment.productBaseUrl;
-  String _token;
+  final String _token;
   List<Product> _items = [];
 
   ProductList(this._token, this._items);
@@ -64,7 +64,7 @@ class ProductList with ChangeNotifier {
 
   Future<void> addProduto(Product product) async {
     final response = await http.post(
-      Uri.parse('${_url}.json'),
+      Uri.parse('${_url}.json?auth=$_token'),
       body: jsonEncode(
         {
           "name": product.name,
@@ -91,7 +91,7 @@ class ProductList with ChangeNotifier {
 
     if (index >= 0) {
       await http.patch(
-        Uri.parse('${_url}/${product.id}.json'),
+        Uri.parse('${_url}/${product.id}.json?auth=$_token'),
         body: jsonEncode(
           {
             "name": product.name,
@@ -115,7 +115,7 @@ class ProductList with ChangeNotifier {
       _items.remove(product);
       notifyListeners();
       final response = await http.delete(
-        Uri.parse('${_url}/${product.id}.json'),
+        Uri.parse('${_url}/${product.id}.json?auth=$_token'),
       );
 
       if (response.statusCode >= 400) {

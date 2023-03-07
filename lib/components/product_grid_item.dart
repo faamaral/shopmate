@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shopmate/models/auth.dart';
 
 import '../exceptions/http_exception.dart';
 import '../models/cart.dart';
@@ -14,6 +15,7 @@ class ProductGridItem extends StatelessWidget {
     final msg = ScaffoldMessenger.of(context);
     final product = Provider.of<Product>(context, listen: false);
     final cart = Provider.of<Cart>(context);
+    final auth = Provider.of<Auth>(context, listen: false);
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
       child: GridTile(
@@ -34,7 +36,7 @@ class ProductGridItem extends StatelessWidget {
             builder: (context, product, _) => IconButton(
               onPressed: () async {
                 try {
-                  await product.toggleFavorite();
+                  await product.toggleFavorite(auth.token ?? '');
                 } on HttpException catch (e) {
                   msg.showSnackBar(SnackBar(content: Text(e.toString())));
                 }
