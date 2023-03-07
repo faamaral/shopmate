@@ -19,7 +19,7 @@ class AppDrawer extends StatelessWidget {
             leading: const Icon(Icons.shopping_bag),
             title: const Text("SHOPMATE"),
             onTap: () {
-              Navigator.of(context).pushReplacementNamed(AppRoutes.home);
+              Navigator.of(context).pushReplacementNamed(AppRoutes.authOrHome);
             },
           ),
           const Divider(),
