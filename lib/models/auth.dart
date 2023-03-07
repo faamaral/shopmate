@@ -10,7 +10,7 @@ class Auth with ChangeNotifier {
   // final _url = '${Environment.authUrl + Environment.apiKey}';
   String? _token;
   String? _email;
-  String? _uId;
+  String? _userId;
   DateTime? _expiryDate;
 
   bool get isAuthenticated {
@@ -26,8 +26,8 @@ class Auth with ChangeNotifier {
     return isAuthenticated ? _email : null;
   }
 
-  String? get uId {
-    return isAuthenticated ? _uId : null;
+  String? get userId {
+    return isAuthenticated ? _userId : null;
   }
 
   Future<void> _authenticate(
@@ -50,7 +50,7 @@ class Auth with ChangeNotifier {
     } else {
       _token = body['idToken'];
       _email = body['email'];
-      _uId = body['localId'];
+      _userId = body['localId'];
 
       _expiryDate =
           DateTime.now().add(Duration(seconds: int.parse(body['expiresIn'])));
