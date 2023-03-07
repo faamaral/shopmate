@@ -31,7 +31,10 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (_) => ProductList(),
+          create: (_) => Auth(),
+        ),
+        ChangeNotifierProxyProvider<Auth, ProductList>(
+          create: (_) => ProductList('', []), update: (BuildContext context, auth, ProductList? previous) => ProductList(auth.token ?? '', previous?.items ?? []),
         ),
         ChangeNotifierProvider(
           create: (_) => Cart(),
@@ -39,15 +42,12 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => OrderList(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => Auth(),
-        ),
       ],
       child: MaterialApp(
         title: 'SHOPMATE - Your Shop Online',
         theme: theme.copyWith(
-          colorScheme: theme.colorScheme
-              .copyWith(primary: AppColors.primary, secondary: AppColors.secondary),
+          colorScheme: theme.colorScheme.copyWith(
+              primary: AppColors.primary, secondary: AppColors.secondary),
           textTheme: theme.textTheme.apply(fontFamily: 'Lato'),
           // fontFamily: 'Lato',
         ),
