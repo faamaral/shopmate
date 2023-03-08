@@ -19,7 +19,13 @@ import 'pages/products_page.dart';
 import 'utils/app_routes.dart';
 
 Future<void> main() async {
-  await dotenv.load(fileName: '.env', mergeWith: Platform.environment);
+  // if (Platform.isAndroid) {
+  //   await dotenv.load(fileName: '.env', mergeWith: Platform.environment);
+  // } else if (Platform.isIOS || Platform.isMacOS) {
+  //   await dotenv.load(mergeWith: Platform.environment);
+  // }
+
+  await dotenv.load();
   runApp(const MyApp());
 }
 
@@ -36,11 +42,15 @@ class MyApp extends StatelessWidget {
           create: (_) => Auth(),
         ),
         ChangeNotifierProxyProvider<Auth, ProductList>(
-          create: (_) => ProductList(), update: (BuildContext context, auth, ProductList? previous) => ProductList(auth.token ?? '', auth.userId ?? '', previous?.items ?? []),
+          create: (_) => ProductList(),
+          update: (BuildContext context, auth, ProductList? previous) =>
+              ProductList(
+                  auth.token ?? '', auth.userId ?? '', previous?.items ?? []),
         ),
         ChangeNotifierProxyProvider<Auth, OrderList>(
           create: (_) => OrderList(),
-          update: (context, auth, previous) => OrderList(auth.token ?? '', auth.userId ?? '',previous?.items ?? []),
+          update: (context, auth, previous) => OrderList(
+              auth.token ?? '', auth.userId ?? '', previous?.items ?? []),
         ),
         ChangeNotifierProvider(
           create: (_) => Cart(),
