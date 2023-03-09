@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopmate/models/auth.dart';
+import 'package:shopmate/pages/orders_page.dart';
 
 import '../utils/app_routes.dart';
+import '../utils/custom_route.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});
@@ -30,6 +32,8 @@ class AppDrawer extends StatelessWidget {
             title: const Text("Pedidos"),
             onTap: () {
               Navigator.of(context).pushReplacementNamed(AppRoutes.orders);
+              // Navigator.of(context).pushReplacement(
+              //     CustomRoute(builder: (context) => OrdersPage()));
             },
           ),
           const Divider(),

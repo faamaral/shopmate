@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/provider.dart';
-import 'package:shopmate/utils/app_colors.dart';
+import 'utils/custom_route.dart';
 
 import 'models/auth.dart';
 import 'models/cart.dart';
@@ -16,6 +16,7 @@ import 'pages/product_detail_page.dart';
 import 'pages/product_form_page.dart';
 import 'pages/products_overview_page.dart';
 import 'pages/products_page.dart';
+import 'utils/app_colors.dart';
 import 'utils/app_routes.dart';
 
 Future<void> main() async {
@@ -58,12 +59,22 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'SHOPMATE - Your Shop Online',
-        theme: theme.copyWith(
-          colorScheme: theme.colorScheme.copyWith(
-              primary: AppColors.primary, secondary: AppColors.secondary),
-          textTheme: theme.textTheme.apply(fontFamily: 'Lato'),
-          // fontFamily: 'Lato',
-        ),
+        // theme: theme.copyWith(
+        //   colorScheme: theme.colorScheme.copyWith(
+        //       primary: AppColors.primary, secondary: AppColors.secondary),
+        //   textTheme: theme.textTheme.apply(fontFamily: 'Lato'),
+        //   pageTransitionsTheme: theme.pageTransitionsTheme.builders.map((key, value) => null)
+        //   // fontFamily: 'Lato',
+        // ),
+        theme: ThemeData(
+            colorScheme: ColorScheme.fromSwatch().copyWith(
+                primary: AppColors.primary, secondary: AppColors.secondary),
+            fontFamily: 'Lato',
+            pageTransitionsTheme: PageTransitionsTheme(
+                builders: <TargetPlatform, PageTransitionsBuilder>{
+                  TargetPlatform.android: CustomPageTransitionBuilder(),
+                  TargetPlatform.iOS: CustomPageTransitionBuilder(),
+                })),
         // home: const ProductsOverviewPage(),
         routes: {
           AppRoutes.authOrHome: (context) => const AuthPage(),
