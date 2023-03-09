@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopmate/models/auth.dart';
+import 'package:shopmate/utils/app_images.dart';
 
 import '../exceptions/http_exception.dart';
 import '../models/cart.dart';
@@ -21,9 +22,13 @@ class ProductGridItem extends StatelessWidget {
       child: GridTile(
         // ignore: sort_child_properties_last
         child: GestureDetector(
-          child: Image.network(
-            product.imageUrl,
-            fit: BoxFit.cover,
+          child: Hero(
+            tag: product.id,
+            child: FadeInImage(
+              placeholder: const AssetImage(AppImages.productPlaceholder),
+              image: NetworkImage(product.imageUrl),
+              fit: BoxFit.cover,
+            ),
           ),
           onTap: () {
             Navigator.of(context)
@@ -36,7 +41,8 @@ class ProductGridItem extends StatelessWidget {
             builder: (context, product, _) => IconButton(
               onPressed: () async {
                 try {
-                  await product.toggleFavorite(auth.token ?? '', auth.userId ?? '');
+                  await product.toggleFavorite(
+                      auth.token ?? '', auth.userId ?? '');
                 } on HttpException catch (e) {
                   msg.showSnackBar(SnackBar(content: Text(e.toString())));
                 }
