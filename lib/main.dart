@@ -25,7 +25,7 @@ Future<void> main() async {
   //   await dotenv.load(mergeWith: Platform.environment);
   // }
 
-  await dotenv.load();
+  await dotenv.load(fileName: '.env');
   runApp(const MyApp());
 }
 
