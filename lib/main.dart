@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/provider.dart';
+import 'package:shopmate/pages/auth_or_home_page.dart';
 import 'utils/custom_route.dart';
 
 import 'models/auth.dart';
@@ -77,7 +78,7 @@ class MyApp extends StatelessWidget {
                 })),
         // home: const ProductsOverviewPage(),
         routes: {
-          AppRoutes.authOrHome: (context) => const AuthPage(),
+          AppRoutes.authOrHome: (context) => const AuthOrHomePage(),
           // AppRoutes.home: (context) => const ProductsOverviewPage(),
           AppRoutes.productDetail: (context) => const ProductDetailPage(),
           AppRoutes.cart: (context) => const CartPage(),
