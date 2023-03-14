@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_config/flutter_config.dart';
 import 'package:provider/provider.dart';
 import 'package:shopmate/pages/auth_or_home_page.dart';
 import 'utils/custom_route.dart';
@@ -27,7 +27,9 @@ Future<void> main() async {
   //   await dotenv.load(mergeWith: Platform.environment);
   // }
 
-  await dotenv.load(fileName: '.env');
+  // await dotenv.load(fileName: '.env');
+  WidgetsFlutterBinding.ensureInitialized(); // Required by FlutterConfig
+  await FlutterConfig.loadEnvVariables();
   runApp(const MyApp());
 }
 

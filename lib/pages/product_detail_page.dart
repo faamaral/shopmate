@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/product.dart';
+import '../utils/app_images.dart';
 
 class ProductDetailPage extends StatelessWidget {
   const ProductDetailPage({
@@ -27,6 +28,7 @@ class ProductDetailPage extends StatelessWidget {
                     child: Image.network(
                       product.imageUrl,
                       fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) => Image.asset(AppImages.productPlaceholder),
                     ),
                   ),
                   const DecoratedBox(

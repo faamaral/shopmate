@@ -1,55 +1,58 @@
 # Shopmate
 
-Shopmate is a simple online store application created using the Flutter framework for practical learning purposes. It demonstrates various concepts such as state management and form usage.
+Shopmate is a Flutter application developed for the purpose of learning and improving skills in building forms in Flutter, working with authentication, state management, sending HTTP requests, and working with animations, among other things.
 
-## How to Use
+## Technologies
 
-1. Clone the repository to your local machine.
+The following technologies and libraries were used in the development of this project:
 
-```
-git clone https://github.com/faamaral/shopmate.git
-```
+[![Flutter](https://img.shields.io/badge/Flutter-%5E3.3.10-blue)](https://flutter.dev/)
+[![Dart](https://img.shields.io/badge/Dart-%5E2.18.6-blue)](https://dart.dev/)
+[![Firebase](https://img.shields.io/badge/Firebase-%5E9.0.0-orange)](https://firebase.google.com/)
+[![http](https://img.shields.io/badge/http-%5E0.13.3-blue)](https://pub.dev/packages/http)
+[![GetX](https://img.shields.io/badge/SharedPreferences-%5E2.0.18-blue)](https://pub.dev/packages/get)
 
-2. Install the necessary dependencies by typing the following command:
+## Screenshots
 
-```
-flutter pub get
-```
+Below are some screenshots of the Shopmate app:
 
-3. Set up the project by running the appropriate setup file for your operating system:
+<div style="display:flex; flex-direction: row; justify-content: space-evenly; margin-top: 20px;">
+  <img src="docs/screenshots/home.png" alt="Home Screen" width="180">
+  <img src="docs/screenshots/cart.png" alt="Cart" width="180">
+  <img src="docs/screenshots/drower.png" alt="App Drower" width="180">
+  <img src="docs/screenshots/my_orders.png" alt="My Orders" width="180">
+  <img src="docs/screenshots/edit_product.png" alt="Edit Product" width="180">
+</div>
 
-- For Linux/Mac:
+## Get Started
+
+Before running the application, it is necessary to create a `.env` file manually or by running the setup scripts to add the values of `BASE_URL` for Firebase Runtime Storage and `API_KEY`, which are required for the application to run.
+
+To get started with the project, follow these steps:
+
+1. Clone the repository:
 
   ```
-  sh setup.sh
+  git clone https://github.com/faamaral/shopmate.git
   ```
 
-- For Windows:
+2. Create a `.env` file with the required variables (see example in `.env.example`).
+3. Run the following command to install the project dependencies:
 
   ```
-  ./setup.ps1
+  flutter pub get
   ```
 
-When running the setup file, you will be prompted to enter the values for `BASE_URL` and `API_KEY`.
+4. Run the project:
 
-4. Run the application by typing:
+  ```
+  flutter run
+  ```
 
-```
-flutter run android
-```
+## Contributions
 
-or
-
-```
-flutter run
-```
-
-5. Alternatively, you can try one of the releases published in this repository. Install one of the release [files](https://github.com/faamaral/shopmate/releases) for Android or iOS on your smartphone.
-
-## Contributing
-
-Contributions are welcome and encouraged! Please feel free to open an issue or submit a pull request.
+Contributions to the project are welcome. To contribute, please fork the repository, create a new branch, make your changes, and submit a pull request.
 
 ## License
 
-Shopmate is released under the MIT License. See the LICENSE file for more details.
+This project is licensed under the MIT License. See the [LICENSE](/LICENSE) file for details.

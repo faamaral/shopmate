@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 
 import '../exceptions/http_exception.dart';
@@ -35,8 +34,7 @@ class ProductList with ChangeNotifier {
       Uri.parse('${Environment.userFavorites}/$_userId.json?auth=$_token'),
     );
 
-    Map<String, dynamic> favData =
-        favResponse.body == null ? {} : jsonDecode(favResponse.body);
+    Map<String, dynamic> favData = favResponse.body == 'null' ? {} : jsonDecode(favResponse.body);
     Map<String, dynamic> data = jsonDecode(response.body);
     data.forEach((productId, productData) {
       final isFavorite = favData[productId] ?? false;

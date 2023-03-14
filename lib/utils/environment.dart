@@ -1,11 +1,11 @@
-import 'dart:io';
-
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_config/flutter_config.dart';
 
 class Environment {
-  static String get productBaseUrl => '${dotenv.env['BASE_URL']}/products';
-  static String get orderBaseUrl => '${dotenv.env['BASE_URL']}/orders';
-  static String get userFavorites => '${dotenv.env['BASE_URL']}/userFavorites';
-  static String get apiKey => '${dotenv.env['API_KEY']}';
-  static String get authUrl => '${dotenv.env['AUTH_URL']}';
+  static final productBaseUrl =
+      '${FlutterConfig.get('BASE_URL')}/products';
+  static String get orderBaseUrl => '${FlutterConfig.get('BASE_URL')}/orders';
+  static String get userFavorites =>
+      '${FlutterConfig.get('BASE_URL')}/userFavorites';
+  static final apiKey = '${FlutterConfig.get('API_KEY')}';
+  // static String get authUrl => '${dotenv.env['AUTH_URL']}';
 }
