@@ -54,7 +54,8 @@ class AuthPage extends StatelessWidget {
                             fontSize: 45,
                             fontFamily: 'Anton',
                             color:
-                                Theme.of(context).accentTextTheme.headline6?.color),
+                                // Theme.of(context).accentTextTheme.headline6?.color),
+                                Theme.of(context).textTheme.headlineSmall?.color),
                       ),
                     ),
                     AuthForm()
