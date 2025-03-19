@@ -42,7 +42,7 @@ class CartPage extends StatelessWidget {
                       style: TextStyle(
                           color: Theme.of(context)
                               .primaryTextTheme
-                              .headline6
+                              .headlineMedium
                               ?.color),
                     ),
                   ),
